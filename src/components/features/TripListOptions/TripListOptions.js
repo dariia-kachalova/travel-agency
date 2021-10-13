@@ -9,24 +9,24 @@ class TripListOptions extends React.Component {
     if(checked) {
       console.log('Adding tag', tag);
       // TODO - use action dispatcher from props
-			this.props.addTag(tag);
+      this.props.addTag(tag);
     } 
     else {
       console.log('Removing tag', tag);
       // TODO - use action dispatcher from props
-			this.props.removeTag(tag);
+      this.props.removeTag(tag);
     }
   }
 
   handleDuration(type, value){
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
-		const daysNum = parseInt(value);
+    const daysNum = parseInt(value);
     if(type === 'from' && daysNum <= this.props.filters.duration.to) {
-      this.props.changeDuration({from: daysNum, to: this.props.filters.duration.to});
+      this.props.changeDurationTo({from: daysNum, to: this.props.filters.duration.to});
     }
     else if (type === 'to' && daysNum >= this.props.filters.duration.from) {
-      this.props.changeDuration({from: this.props.filters.duration.from, to: daysNum});
+      this.props.changeDurationFrom({from: this.props.filters.duration.from, to: daysNum});
     }
   }
 
@@ -80,11 +80,13 @@ class TripListOptions extends React.Component {
 }
 
 TripListOptions.propTypes = {
-  tags: PropTypes.object,
-  filters: PropTypes.object,
-  changeSearchPhrase: PropTypes.func,
-	changeDurationTo: PropTypes.func,
-  changeDurationFrom: PropTypes.func,
+  tags: PropTypes.object.isRequired,
+  filters: PropTypes.object.isRequired,
+  changeSearchPhrase: PropTypes.func.isRequired,
+  changeDurationTo: PropTypes.func.isRequired,
+  changeDurationFrom: PropTypes.func.isRequired,
+  removeTag: PropTypes.func,
+  addTag: PropTypes.func,
 };
 
 export default TripListOptions;

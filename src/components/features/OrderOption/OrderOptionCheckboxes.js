@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import styles from './OrderOption.module.scss';
 import { formatPrice } from '../../../utils/formatPrice';
 import PropTypes from 'prop-types';
@@ -40,4 +40,4 @@ OrderOptionCheckboxes.propTypes = {
   setOptionValue: PropTypes.func,
   values: PropTypes.array,
 };
-export default OrderOptionCheckboxes
+export default OrderOptionCheckboxes;

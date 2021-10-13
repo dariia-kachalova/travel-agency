@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './OrderOption.module.scss';
 
 const OrderOptionText = ({ setOptionValue }) => (
-<div>
+  <div>
     <input
       className={styles.input}
       onChange={(event) => setOptionValue(event.currentTarget.value)}

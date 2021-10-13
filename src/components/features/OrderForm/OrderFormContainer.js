@@ -4,7 +4,7 @@ import { getOrderOptions, setOrderOption } from '../../../redux/orderRedux';
 import OrderForm from './OrderForm';
 
 const mapStateToProps = state => ({
-    options: getOrderOptions(state),
+  options: getOrderOptions(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   setOrderOption: (option) => dispatch(setOrderOption(option)),
