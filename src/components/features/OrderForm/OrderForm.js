@@ -10,6 +10,7 @@ import { calculateTotal } from '../../../utils/calculateTotal';
 import Button from '../../common/Button/Button';
 
 const sendOrder = (options, tripCost, countryName, tripId, tripName) => {
+  console.log(options, tripCost, countryName, tripId, tripName);
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
   const payload = {
@@ -38,9 +39,11 @@ const sendOrder = (options, tripCost, countryName, tripId, tripName) => {
       console.log('parsedResponse', parsedResponse);
     });
 };
-const checkOrderInfo = (props) => {
-  if (props.name && props.contact) {
-    sendOrder(props.name, props.contact, props.cost, props.countryName, props.options, props.tripId, props.tripName);
+const checkOrderInfo = (options, cost, tripName, tripId, countryCode) => {
+  console.log(options);
+  if (options.name && options.contact) {
+    
+    sendOrder(options, cost, tripName, tripId, countryCode);
     window.alert(settings.popupMessages.orderConfirm);
   }
   else {
